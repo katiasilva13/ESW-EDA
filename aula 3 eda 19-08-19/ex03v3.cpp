@@ -2,7 +2,7 @@
 	Name: Marina
 	Author: @ktia-
 	Date: 26/08/19 02:04
-	Description: Exercicio 3, letra A e B completas.
+	Description: Exercicio 3, letra A e B completas. C em andamento.
 */
 
 	#include <stdio.h>
@@ -56,7 +56,7 @@
 		double x, y, total;
 		x = retornaReal(a);
 		y = retornaReal(b);
-				total = x + y; 
+		total = x + y; 
 		c = criaReal(total);
 	//	imprime(c);	
 	printf("Soma: %f \n", total);
@@ -72,15 +72,15 @@ int main(){
 	r2.direita = 27;	
 	struct realtype r3 = {-6, 39};
 	struct realtype r4;	
-		imprime(r4);
+			
 //	imprimeDireita(r3);
 //	imprimeEsquerda(r3); 
 //  imprime(&r4);
 //	printf("Retorna numero real: %f \n",retornaReal(r1));	
 
+	imprime(r4);
 //	printf("Soma: %f \n", somar(r1, r2, r4));
 	somar(r1, r2, r4);
-	
 //	r4 = criaReal(somar(r1, r2));	
 	imprime(r4);
 	    
