@@ -50,17 +50,14 @@
 		printf("O numero real eh: %f \n", retornaReal(a));
 	}
 	
-	double somar(struct realtype a,struct realtype b, struct realtype c){
-//	double somar(struct realtype a,struct realtype b){
-				
+	struct realtype somar(struct realtype a,struct realtype b){
+		struct realtype c;
 		double x, y, total;
 		x = retornaReal(a);
 		y = retornaReal(b);
 		total = x + y; 
-		c = criaReal(total);
-	//	imprime(c);	
-	printf("Soma: %f \n", total);
-		return total;
+		c = criaReal(total);	
+		return c;
 	}
 
 int main(){
@@ -78,10 +75,7 @@ int main(){
 //  imprime(&r4);
 //	printf("Retorna numero real: %f \n",retornaReal(r1));	
 
-	imprime(r4);
-//	printf("Soma: %f \n", somar(r1, r2, r4));
-	somar(r1, r2, r4);
-//	r4 = criaReal(somar(r1, r2));	
+	r4 = somar(r1, r2);	
 	imprime(r4);
 	    
 	return 0;    
