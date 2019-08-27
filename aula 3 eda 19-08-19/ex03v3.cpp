@@ -2,7 +2,7 @@
 	Name: Marina
 	Author: @ktia-
 	Date: 26/08/19 02:04
-	Description: Exercicio 3, letra A e B completas. C em andamento.
+	Description: Exercicio 3, letra A, B e C completas.
 */
 
 	#include <stdio.h>
@@ -47,7 +47,7 @@
 	}	
 				
 	void imprime(struct realtype a){
-		printf("O numero real eh: %f \n", retornaReal(a));
+		printf("O numero real eh: %.3f \n", retornaReal(a));
 	}
 	
 	struct realtype somar(struct realtype a,struct realtype b){
@@ -59,7 +59,27 @@
 		c = criaReal(total);	
 		return c;
 	}
-
+	
+	struct realtype subtrair(struct realtype a,struct realtype b){
+		struct realtype c;
+		double x, y, total;
+		x = retornaReal(a);
+		y = retornaReal(b);
+		total = x - y; 	
+		c = criaReal(total);	
+		return c;
+	}
+	
+	struct realtype multiplicar(struct realtype a,struct realtype b){
+		struct realtype c;
+		double x, y, total;
+		x = retornaReal(a);
+		y = retornaReal(b);
+		total = x * y; 		
+		c = criaReal(total);	
+		return c;
+	}
+	
 int main(){
 	
 	double num = 15.17;  
@@ -68,15 +88,13 @@ int main(){
 	r2.esquerda = -3;
 	r2.direita = 27;	
 	struct realtype r3 = {-6, 39};
-	struct realtype r4;	
-			
+	struct realtype r4 = somar(r1, r2);	
+	struct realtype r5 = multiplicar(r3, r4);
+	struct realtype r6 = subtrair(r2,r3);
 //	imprimeDireita(r3);
-//	imprimeEsquerda(r3); 
-//  imprime(&r4);
+//	imprimeEsquerda(r3);
 //	printf("Retorna numero real: %f \n",retornaReal(r1));	
-
-	r4 = somar(r1, r2);	
-	imprime(r4);
+//	imprime(r6);
 	    
 	return 0;    
 }
