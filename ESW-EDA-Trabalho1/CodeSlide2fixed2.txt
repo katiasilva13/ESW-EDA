@@ -1,0 +1,73 @@
+# include <stdio.h>
+# include <stdlib.h>
+
+struct Arvore {
+      int  conteudo; // conteúdo
+      struct Arvore *esq;
+      struct Arvore *dir;
+   };
+  
+typedef struct Arvore no;
+
+no* inseriNo(int conteudo, no* esq, no* dir);
+
+void imprimirERD(no* n);
+
+int pertenceaArvore(no* n, int c);
+  
+  
+no* inserir(int conteudo, no* esq, no* dir){
+	no* n = (no*) malloc(sizeof(no));
+	  if (n==NULL){
+	  	exit(1);
+	  }else{
+	  	n->conteudo = conteudo;
+	  	n->esq = esq;
+	  	n->dir = dir;
+	  }
+	
+	return n;
+}
+
+//função que verifica existencia de um no na arvore.
+int pertenceaArvore(no* n, int c){
+    if(n==NULL){
+       return 0;
+    }else{
+    return n->conteudo == c || pertenceaArvore(n->esq,c) || pertenceaArvore(n->dir,c);
+}
+}
+
+//Escreva uma função que imprima, em ordem e-r-d, os conteúdos das folhas
+//de uma árvore binária.
+void imprimirERD(no* n){
+	if(n!=NULL){
+		if (n->esq == NULL && n->dir == NULL ){			
+			printf("%i  ", n->conteudo);
+			return;
+		}
+		imprimirERD(n->esq);
+		imprimirERD(n->dir);
+	}
+}
+
+
+// número de nós da arvore.
+int numero_nos(no* n){
+	if((NULL == n->esq) && (NULL == n->dir)){
+		return 1;
+	}else{
+		return 1 + numero_nos(n->esq) + numero_nos(n->dir);
+	}
+}
+
+int main (){
+    no* c = inserir(15, inserir(5,NULL,NULL),inserir(7,NULL,NULL));
+    printf("Ordem E-R-D: ");
+	imprimirERD(c);
+	printf("\nNumero de nos: %d", numero_nos(c));
+	int valor = 15; 
+	printf("\nO valor %d na arvore? (Sim=1; Nao=0)\n%d", valor, pertenceaArvore(c,valor));
+	
+	return 0;
+}
